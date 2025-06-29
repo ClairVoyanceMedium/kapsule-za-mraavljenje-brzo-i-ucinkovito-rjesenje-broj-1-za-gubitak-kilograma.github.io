@@ -1,42 +1,283 @@
-# Indique aux robots que toutes les pages peuvent être explorées, sauf restrictions spécifiées
+# robots.txt v3.5 - 2025-05-28
+# Optimizirano za https://clairvoyancemedium.github.io/kapsule-za-mraavljenje-brzo-i-ucinkovito-rjesenje-broj-1-za-gubitak-kilograma.github.io/
+# Ciljevi: Globalni SEO, vrlo često indeksiranje, podrška za AI/glasovne asistente/društvene mreže, višejezičnost, maksimalna zaštita
+
+# --- Opće upute za sve legitimne programe za indeksiranje ---
 User-agent: *
-Disallow: /admin/
-Disallow: /tmp/
-Disallow: /private/
+Allow: /
+Allow: /[a-z]{2}/  # Višejezične stranice (/hr/, /en/, /es/, itd.)
+Allow: /uvjeti/     # Uvjeti korištenja
+Allow: /fontovi/    # Fontovi za prikaz
+Allow: /slike/     # Slike za indeksiranje
+Allow: /js/        # Interaktivne skripte
+Allow: /css/       # CSS prilagođen mobilnim uređajima
+Allow: /*.webp$    # Slike WebP
+Allow: /*.jpg$     # Slike JPG
+Allow: /*.png$     # Slike PNG
+Allow: /*.gif$     # Slike GIF
+Allow: /*.js$      # JavaScript skripte
+Allow: /*.css$     # CSS datoteke
+Disallow: /csp-izvjestaj-endpoint/  # Zaštita CSP
+Disallow: /kontakt/                # Kontakt stranica
+Disallow: /privatnost/             # Politika privatnosti
+Disallow: /naplata/               # Transakcijski procesi
+Disallow: /pretraga/              # Stranice pretraživanja
+Disallow: /api/                   # API krajnje točke
+Disallow: /test/                  # Testni direktoriji
+Disallow: /priprema/              # Pripremno okruženje
+Clean-param: utm_source&utm_medium&utm_campaign&lang&session_id  # Korisni parametri
 
-# Bloquer des URL avec paramètres inutiles pour l'indexation
-Disallow: /*?debug=true
-Disallow: /*?preview=true
-
-# Permettre les fichiers nécessaires au bon affichage et fonctionnement
-Allow: /css/
-Allow: /js/
-Allow: /images/
-
-# Référencement des ressources multimédias
-Allow: *.png
-Allow: *.jpg
-Allow: *.webp
-Allow: *.css
-Allow: *.js
-
-# Fournir le chemin du fichier sitemap pour une meilleure indexation
-Sitemap: https://www.clairvoyancemedium.com/sitemap.xml
-
-# Autorisation pour les robots Google et Bing pour maximiser les campagnes publicitaires
+# --- Upute za Googlebot (Google, Google Assistant) ---
 User-agent: Googlebot
+Crawl-delay: 1
+Allow: /blog/      # Bogat sadržaj za SEO
+Allow: /clanak/    # Članci za isječke
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+
+# --- Upute za Googlebot-Image ---
+User-agent: Googlebot-Image
+Allow: /slike/
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.gif$
+Disallow: /favicon_optimized.webp  # Izbjegavanje favicona
+
+# --- Upute za Googlebot-Video ---
+User-agent: Googlebot-Video
+Crawl-delay: 1
 Allow: /
-User-agent: AdsBot-Google
-Allow: /
+Allow: /[a-z]{2}/
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+
+# --- Upute za Bingbot (Bing, Cortana) ---
 User-agent: Bingbot
+Crawl-delay: 2
+Allow: /blog/
+Allow: /clanak/
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+
+# --- Upute za Yandex (Yandex, Alice) ---
+User-agent: Yandex
+Crawl-delay: 3
+Allow: /blog/
+Allow: /clanak/
+Clean-param: utm_source&utm_medium&utm_campaign&lang&session_id
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+
+# --- Upute za Baiduspider (Kina) ---
+User-agent: Baiduspider
+Crawl-delay: 3
+Allow: /zh/        # Prioritet kineskom jeziku
+Allow: /blog/
+Allow: /clanak/
+Clean-param: lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+Disallow: /api/
+Disallow: /test/
+Disallow: /priprema/
+
+# --- Upute za Sogou (Kina) ---
+User-agent: Sogou
+Crawl-delay: 4
+Allow: /zh/
+Allow: /blog/
+Allow: /clanak/
+Clean-param: lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+Disallow: /api/
+Disallow: /test/
+Disallow: /priprema/
+
+# --- Upute za Applebot (Siri, Apple) ---
+User-agent: Applebot
+Crawl-delay: 2
+Allow: /blog/
+Allow: /clanak/
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+
+# --- Upute za Amazonbot (Alexa, Amazon) ---
+User-agent: Amazonbot
+Crawl-delay: 3
+Allow: /blog/
+Allow: /clanak/
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+
+# --- Upute za Naverbot (Japan/Koreja) ---
+User-agent: Naverbot
+Crawl-delay: 3
+Allow: /ja/        # Prioritet japanskom jeziku
+Allow: /ko/        # Prioritet korejskom jeziku
+Allow: /blog/
+Allow: /clanak/
+Clean-param: lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+
+# --- Upute za SeznamBot (Češka) ---
+User-agent: SeznamBot
+Crawl-delay: 3
+Allow: /cs/        # Prioritet češkom jeziku
+Allow: /blog/
+Allow: /clanak/
+Clean-param: lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+
+# --- Upute za Qwantify (Qwant, Europa) ---
+User-agent: Qwantify
+Crawl-delay: 4
+Allow: /fr/        # Prioritet francuskom jeziku
+Allow: /blog/
+Allow: /clanak/
+Clean-param: lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+
+# --- Upute za DuckDuckGoBot (Globalno) ---
+User-agent: DuckDuckGoBot
+Crawl-delay: 2
 Allow: /
+Allow: /[a-z]{2}/
+Allow: /blog/
+Allow: /clanak/
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
 
-# Bloquer les robots nuisibles ou non désirés
-User-agent: BadBot
-Disallow: /
-User-agent: EvilScraper
+# --- Upute za JioSphere (Indija) ---
+User-agent: JioSphere
+Crawl-delay: 3
+Allow: /hi/        # Prioritet hindskom jeziku
+Allow: /blog/
+Allow: /clanak/
+Clean-param: lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+
+# --- Upute za programe za indeksiranje konverzacijske AI ---
+User-agent: Grok
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: openai-crawler
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: cohere-ai
+User-agent: PerplexityBot
+User-agent: CCBot
+User-agent: youbot
+User-agent: phindbot
+User-agent: GeminiBot  # Google AI
+Crawl-delay: 4
+Allow: /
+Allow: /[a-z]{2}/
+Allow: /blog/      # Konverzacijski isječci
+Allow: /clanak/
+Allow: /slike/
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.gif$
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+Disallow: /api/
+Disallow: /test/
+Disallow: /priprema/
+
+# --- Upute za programe za indeksiranje društvenih mreža ---
+User-agent: FacebookBot
+User-agent: Twitterbot
+User-agent: redditbot
+User-agent: TikTokBot  # Nove društvene mreže
+Crawl-delay: 2
+Allow: /
+Allow: /[a-z]{2}/
+Allow: /blog/      # Pregledi za društvene mreže
+Allow: /clanak/
+Allow: /slike/
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.gif$
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+
+# --- Blokiranje neželjenih programa za indeksiranje ---
+User-agent: MJ12bot
+User-agent: AhrefsBot
+User-agent: PetalBot
+User-agent: DotBot
 Disallow: /
 
-# Empêcher l'exploration des fichiers sensibles
-Disallow: /config/
-Disallow: /backup/
+# --- Dopuštanje SemrushBot za SEO revizije ---
+User-agent: SemrushBot
+Crawl-delay: 5
+Allow: /
+Allow: /[a-z]{2}/
+Allow: /blog/
+Allow: /clanak/
+Allow: /slike/
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.gif$
+Clean-param: utm_source&utm_medium&utm_campaign&lang
+Disallow: /csp-izvjestaj-endpoint/
+Disallow: /kontakt/
+Disallow: /privatnost/
+Disallow: /naplata/
+
+# --- Zaštita od neprepoznatih programa za indeksiranje ---
+User-agent: *
+Disallow: /  # Blokiraj prema zadanim postavkama osim ako nije izričito dopušteno
+
+# --- Optimizacija indeksiranja ---
+Crawl-delay: 1
+Request-rate: 1/4  # 1 zahtjev svake 4 sekunde za brzo indeksiranje
+
+# --- Indeks mapa stranica ---
+Sitemap: https://clairvoyancemedium.github.io/kapsule-za-mraavljenje-brzo-i-ucinkovito-rjesenje-broj-1-za-gubitak-kilograma.github.io/sitemap-index.xml
